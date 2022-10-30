@@ -1,0 +1,52 @@
+﻿@model List<AspNetCore_6_MVC_Crud.Models.DataModels.Employee>
+
+
+@{
+}
+
+<h1>Employees</h1>
+<h1><a href="#"><--Return to Raul's Blog</a></h1>
+<hr />
+<br />
+
+<div class="d-grid gap-2 col-6 mx-auto">
+	<a class="btn btn-primary" href="EmployeesController1/AddEmployee">Add Employee</a>
+</div>
+
+<hr />
+<br />
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Salary</th>
+			<th>Date of Birth</th>
+			<th>Department</th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach(var employee in Model){
+			<tr>
+				<td>@employee.Id</td>
+				<td>@employee.Name</td>
+				<td>@employee.Email</td>
+				<td>@employee.Salary</td>
+				<td>@employee.DateOfBirth.ToShortDateString()</td>
+				<td>@employee.Department</td>
+				<td> 
+					<a class="btn btn-success" href="EmployeesController1/UpdateEmployeer/@employee.Id">Update</a>
+				</td>
+				<td>
+					<form action="EmployeesController1/DeleteEmployeer/@employee.Id" method="post">
+						<button class="btn btn-danger" type="submit">Delete</button>
+					</form>				
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

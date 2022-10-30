@@ -1,0 +1,55 @@
+﻿@model AspNetCore_6_MVC_Crud.Models.UpdateEmployeeModel
+
+<h1>Edit Employee</h1>
+
+<form method="post" action="Index">
+      <div asp-validation-summary=ModelOnly class="text-danger"></div>
+
+        <!--Id-->
+      <div class="mb-3">
+        <label for="" class="form-label">Id</label>
+        <input type="text"  class="form-control" asp-for="Id" readonly>
+      </div>
+
+        <!--Name-->
+      <div class="mb-3">
+        <label for="" class="form-label">Name</label>
+        <input type="text" class="form-control" asp-for="Name" minlength=5 required>
+      </div>
+
+          <!--email-->
+      <div class="mb-3">
+        <label for="" class="form-label">Email</label>
+        <input type="email" class="form-control" asp-for="Email" required>
+      </div>
+
+        <!--Salary-->
+      <div class="mb-3">
+        <label for="" class="form-label">Salary</label>
+        <input type="number" class="form-control" asp-for="Salary" min=1000 required>
+      </div>
+
+       <!--Date of birth-->
+      <div class="mb-3">
+        <label for="" class="form-label">Date Of Birth</label>
+        <input type="date" class="form-control" asp-for="DateOfBirth" required>
+      </div>
+
+        <!--Department-->
+    <div class="mb-3">
+        <fieldset>
+        <input type="radio" id="marketing" value="Marketing" asp-for="Department" checked required>
+        <label  for="marketing">Marketing</label><br>
+
+        <input type="radio" id="sales"  value="Sales" asp-for="Department" required>
+        <label for="sales">Sales</label><br>
+
+        <input type="radio" id="IT" value="IT" asp-for="Department" required>
+        <label for="IT">IT</label>
+        </fieldset>
+    </div>
+
+    <button type="submit" class="btn btn-success">Update</button>
+        
+    <a class="btn btn-danger" asp-controller="EmployeesController1" asp-action="Index">Cancel</a>
+</form>

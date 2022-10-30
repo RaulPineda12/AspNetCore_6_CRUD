@@ -1,0 +1,52 @@
+﻿@model AspNetCore_6_MVC_Crud.Models.AddEmployeeModel
+
+@{
+    
+}
+
+<h1>Add Employee</h1>
+<form method="post" action="AddEmployee">
+  <div asp-validation-summary=ModelOnly class="text-danger"></div>
+    <!--Name-->
+  <div class="mb-3">
+    <label for="" class="form-label">First Name and Last Name</label>
+    <input type="text" minlength=5 class="form-control" asp-for="Name" required>
+  </div>
+
+    <!--Email-->
+  <div class="mb-3">
+    <label for="" class="form-label">Email</label>
+    <input type="email" class="form-control" asp-for="Email" required>
+  </div>
+
+    <!--Salary-->
+  <div class="mb-3">
+    <label for="" class="form-label">Salary Per Month</label>
+    <input type="number" min=1000 class="form-control" asp-for="Salary" required>
+  </div>
+
+   <!--Date of birth-->
+  <div class="mb-3">
+    <label for="" class="form-label">Date Of Birth</label>
+    <input type="Date"  class="form-control" asp-for="DateOfBirth" required>
+  </div>
+
+    <!--Department-->
+    <div class="mb-3">
+        <fieldset>
+        <input type="radio" id="marketing" value="Marketing" asp-for="Department" checked required>
+        <label  for="marketing">Marketing</label><br>
+
+        <input type="radio" id="sales"  value="Sales" asp-for="Department" required>
+        <label for="sales">Sales</label><br>
+
+        <input type="radio" id="IT" value="IT" asp-for="Department" required>
+        <label for="IT">IT</label>
+        </fieldset>
+    </div>
+
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+  <a class="btn btn-danger" asp-controller="EmployeesController1" asp-action="Index">Cancel</a>
+
+</form>
